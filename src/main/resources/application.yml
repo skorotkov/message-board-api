@@ -10,3 +10,11 @@ security:
       clientAuthenticationScheme: form
     resource:
       userInfoUri: https://api.github.com/user
+
+katharsis:
+  resourcePackage: org.skor.messageboard.models.domain
+  domainName: http://localhost:8080
+  pathPrefix: /api
+  default-page-limit:
+  jpa:
+    enabled: false
