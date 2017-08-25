@@ -18,3 +18,9 @@ katharsis:
   default-page-limit:
   jpa:
     enabled: false
+
+zuul:
+  routes:
+    adminui:
+      path: /ui/**
+      url: http://localhost:4200/ui/

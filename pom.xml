@@ -85,6 +85,11 @@
 			<!--<artifactId>katharsis-jpa</artifactId>-->
 			<!--<version>${katharsis.version}</version>-->
 		<!--</dependency>-->
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -96,5 +101,16 @@
 		</plugins>
 	</build>
 
+	<dependencyManagement>
+	  <dependencies>
+		<dependency>
+		  <groupId>org.springframework.cloud</groupId>
+		  <artifactId>spring-cloud-dependencies</artifactId>
+		  <version>Dalston.SR2</version>
+		  <type>pom</type>
+		  <scope>import</scope>
+		</dependency>
+	  </dependencies>
+	</dependencyManagement>
 
 </project>

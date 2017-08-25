@@ -4,6 +4,7 @@ import io.katharsis.spring.boot.v3.KatharsisConfigV3;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,6 +14,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 @SpringBootApplication
+@EnableZuulProxy
 @Import(KatharsisConfigV3.class)
 //@EnableOAuth2Sso
 public class MessageBoardApplication extends WebSecurityConfigurerAdapter {
@@ -30,7 +32,7 @@ public class MessageBoardApplication extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**")
             .authorizeRequests()
-                .antMatchers("/", "/github-login", "/api/**").permitAll()
+                .antMatchers("/ui/**", "/github-login", "/api/**").permitAll()
                 .anyRequest().authenticated()
             .and().cors()
             .and().csrf().disable();

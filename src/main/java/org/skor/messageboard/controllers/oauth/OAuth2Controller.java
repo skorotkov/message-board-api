@@ -13,6 +13,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 
 
 @RestController
+@RequestMapping("/api")
 public class OAuth2Controller {
     private static final Logger log = LoggerFactory.getLogger(OAuth2Controller.class);
 
