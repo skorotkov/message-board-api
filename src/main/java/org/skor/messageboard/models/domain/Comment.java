@@ -20,10 +20,13 @@ public class Comment {
     private String body;
 
     @JsonIgnore
-    private Long postId;
+    private Long authorId;
 
     @JsonApiRelation(opposite = "comments")
     private Author author;
+
+    @JsonIgnore
+    private Long postId;
 
     @JsonApiRelation(opposite = "comments")
     private Post post;
